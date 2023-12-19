@@ -7,10 +7,10 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("test1");
-        tracker.add(item);
-        Item result = tracker.findById(item.getId());
-        assertThat(result.getName()).isEqualTo(item.getName());
+        Item someItem = new Item();
+        someItem.setName("test1");
+        tracker.add(someItem);
+        Item result = tracker.findById(someItem.getId());
+        assertThat(result.getName()).isEqualTo(someItem.getName());
     }
 }
