@@ -2,8 +2,9 @@ package ru.job4j.checkstyle;
 
 public class Broken {
     public static final String NEWVALUE = "";
-    public String surname;
-    String name;
+    private String surname;
+    private String name;
+
     private int sizeOfEmpty = 10;
 
     Broken() { }
@@ -17,5 +18,4 @@ public class Broken {
     }
 
     void method(int a, int b, int c) { }
-
 }
