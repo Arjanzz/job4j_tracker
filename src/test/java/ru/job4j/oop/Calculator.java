@@ -22,7 +22,6 @@ public class Calculator {
 
     public int sumAllOperation(int y) {
         return sum(y) + minus(y) + divide(y) + multiply(y);
-
     }
 
     public static void main(String[] args) {
@@ -32,14 +31,9 @@ public class Calculator {
         int resultMinus = minus(5);
         System.out.println(resultMinus);
 
-        Calculator calculatorDivide = new Calculator();
-        System.out.println(calculatorDivide.divide(5));
-
-        Calculator calculatorMultiply = new Calculator();
-        int multResult = calculatorMultiply.multiply(5);
-        System.out.println(multResult);
-
-        Calculator calculatorAllSum = new Calculator();
-        System.out.println(calculatorAllSum.sumAllOperation(5));
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.divide(5));
+        System.out.println(calculator.multiply(5));
+        System.out.println(calculator.sumAllOperation(5));
     }
 }
