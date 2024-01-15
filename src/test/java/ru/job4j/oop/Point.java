@@ -5,12 +5,19 @@ import static java.lang.Math.sqrt;
 
 public class Point {
 
-    private double x;
-    private double y;
+    private int x;
+    private int y;
+    private int z;
 
-    public Point(double first, double second) {
+    public Point(int first, int second) {
         this.x = first;
         this.y = second;
+    }
+
+    public Point(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     public double distance(Point that) {
