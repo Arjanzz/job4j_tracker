@@ -6,8 +6,10 @@ public class College {
         student.setFirstName("Vladimir");
         student.setMiddleName("Vladimirovich");
         student.setLastName("Putin");
+        String s = System.lineSeparator();
 
-        System.out.println("Имя: " + student.getFirstName() + "\nОтчество: " + student.getMiddleName()
-                + "\nФамилия: " + student.getLastName());
+        System.out.println("Имя: " + student.getFirstName() + s + "Отчество: " + student.getMiddleName()
+                + s
+                + "Фамилия: " + student.getLastName());
     }
 }
