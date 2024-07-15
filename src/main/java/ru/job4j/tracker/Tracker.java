@@ -45,7 +45,11 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-    public boolean replace(int id, Item item) { //метод замены заявки
+    public boolean replace(int id, Item item) {
+        if (id < 0 || item == null) {
+            throw new IllegalArgumentException("ID должен быть положительным числом, и объект item не должен быть null");
+        }
+
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
@@ -57,15 +61,20 @@ public class Tracker {
     }
 
     public void delete(int id) {
-        int index = indexOf(id);
-        if (index >= 0) {
-            int start = index + 1;
-            int length = size - start;
-            if (length > 0) {
-                System.arraycopy(items, start, items, index, length);
+        if (id >= 0) {
+            int index = indexOf(id);
+            if (index >= 0) {
+                int start = index + 1;
+                int length = size - start;
+                if (length > 0) {
+                    System.arraycopy(items, start, items, index, length);
+                }
+                items[size - 1] = null;
+                size--;
             }
-            items[size - 1] = null;
-            size--;
+        } else {
+            throw new IllegalArgumentException("ID должен быть больше или равен нулю");
         }
+
     }
 }
