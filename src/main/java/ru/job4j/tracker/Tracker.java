@@ -10,7 +10,7 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
-        return item;
+         return item;
     }
 
     public Item[] findAll() {
@@ -45,7 +45,7 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-    public boolean replace(int id, Item item) {
+    public boolean replace(int id, Item item) { //метод замены заявки
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
@@ -54,5 +54,18 @@ public class Tracker {
             return true;
         }
         return false;
+    }
+
+    public void delete(int id) {
+        int index = indexOf(id);
+        if (index >= 0) {
+            int start = index + 1;
+            int length = size - start;
+            if (length > 0) {
+                System.arraycopy(items, start, items, index, length);
+            }
+            items[size - 1] = null;
+            size--;
+        }
     }
 }
