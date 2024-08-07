@@ -61,19 +61,11 @@ public class Tracker {
     }
 
     public void delete(int id) {
-        if (id >= 0) {
-            int index = indexOf(id);
-            if (index >= 0) {
-                int start = index + 1;
-                int length = size - start;
-                if (length > 0) {
-                    System.arraycopy(items, start, items, index, length);
-                }
-                items[size - 1] = null;
-                size--;
-            }
-        } else {
-            throw new IllegalArgumentException("ID должен быть больше или равен нулю");
+        int index = indexOf(id);
+        if (index >= 0) {
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
+            items[size - 1] = null;
+            size--;
         }
     }
 }
