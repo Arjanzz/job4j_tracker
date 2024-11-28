@@ -15,10 +15,10 @@ public class Matches {
             if (matches < 1 || matches > 3 || matches > count) {
                 System.out.println("Введите число от 1 до 3, не больше оставшихся спичек ("
                         + count + "): ");
-                matches = Integer.parseInt(input.nextLine());
+            } else {
+                count -= matches;
+                turn = !turn;
             }
-            count -= matches;
-            turn = !turn;
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
