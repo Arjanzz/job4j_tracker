@@ -8,6 +8,6 @@ public class MockInput implements Input {
 
     @Override
     public int askInt(String question) {
-        return 0;
+        return 1;
     }
 }
