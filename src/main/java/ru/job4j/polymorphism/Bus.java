@@ -18,8 +18,10 @@ public class Bus implements Transport {
 
     @Override
     public int refuel(int fuel) {
-        System.out.println("refuel: " + fuel + " liters");
-        return 0;
+       if (fuel > 0) {
+           System.out.println("Liters: " + fuel);
+       }
+       return 0;
     }
 
     public static void main(String[] args) {
