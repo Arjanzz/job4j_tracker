@@ -27,8 +27,6 @@ public class StartUI {
                 } else {
                     System.out.println("Хранилище не содержит заявок");
                 }
-            } else if (select == 6) {
-                run = false;
             } else if (select == 2) {
                 System.out.println("=== Edit item ===");
                 System.out.print("Enter id: ");
@@ -70,6 +68,8 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с именем: " + name + " не найдены.");
                 }
+            } else if (select == 6) {
+                run = false;
             }
         }
     }
