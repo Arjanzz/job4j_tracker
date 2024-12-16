@@ -29,10 +29,8 @@ public class UserStore {
             if (validate(user)) {
                 System.out.println("access allowed");
             }
-        } catch (UserInvalidException ie) {
+        } catch (UserNotFoundException ie) {
             ie.printStackTrace();
-        } catch (UserNotFoundException ne) {
-            ne.printStackTrace();
         }
     }
 }
