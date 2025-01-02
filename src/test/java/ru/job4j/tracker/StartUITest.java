@@ -7,6 +7,8 @@ import ru.job4j.tracker.input.MockInput;
 import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.output.StubOutput;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -22,7 +24,7 @@ class StartUITest {
                 new CreateAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
@@ -39,7 +41,7 @@ class StartUITest {
                 new ReplaceAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -66,7 +68,7 @@ class StartUITest {
                 new DeleteAction(output),
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         assertThat(tracker.findById(item.getId())).isNull();
     }
 
@@ -80,7 +82,7 @@ class StartUITest {
         UserAction[] actions = {
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + System.lineSeparator()
                         + "0. Завершить программу" + System.lineSeparator()
@@ -101,7 +103,7 @@ class StartUITest {
                 new ExitAction(output)
         };
 
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -129,7 +131,7 @@ class StartUITest {
                 new ExitAction(output)
         };
 
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -156,7 +158,7 @@ class StartUITest {
                 new ExitAction(output)
         };
 
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
@@ -180,7 +182,7 @@ class StartUITest {
         UserAction[] actions = new UserAction[]{
                 new ExitAction(output)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, List.of(actions));
         String ln = System.lineSeparator();
         assertThat(output.toString()).isEqualTo(
                 "Меню:" + ln
