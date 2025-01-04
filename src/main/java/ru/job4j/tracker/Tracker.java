@@ -1,49 +1,39 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
-    private final List<Item> items = new ArrayList<>(100);
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items.add(size++, item);
-         return item;
+        items.add(item);
+        return item;
     }
 
-    public Item[] findAll() {
-        Item[] result = new Item[size];
-        for (int i = 0; i < size; i++) {
-            result[i] = items.get(i);
-        }
-        return result;
+    public List<Item> findAll() {
+        return new ArrayList<>(items);
     }
 
-    public Item[] findByName(String key) {
-        Item[] result = new Item[size];
-        int index = 0;
-        for (int i = 0; i < size; i++) {
-            if (items.get(i).getName().equals(key)) {
-                result[index] = items.get(i);
-                index++;
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
             }
         }
-        return Arrays.copyOf(result, index);
+        return result;
     }
 
     private int indexOf(int id) {
-        int result = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
-                result = index;
-                break;
+                return index;
             }
         }
-        return result;
+        return -1;
     }
 
     public Item findById(int id) {
@@ -52,7 +42,7 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        if (id < 0 || item == null) {
+        if (id <= 0 || item == null) {
             throw new IllegalArgumentException("ID должен быть положительным числом, и объект item не должен быть null");
         }
 
@@ -60,18 +50,17 @@ public class Tracker {
         if (index != -1) {
             item.setId(id);
             items.set(index, item);
-            items.get(index).setId(id);
             return true;
         }
         return false;
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) { // Изменяем метод на boolean
         int index = indexOf(id);
         if (index >= 0) {
             items.remove(index);
-            items.add(size - 1, null);
-            size--;
+            return true; // Возвращаем true, если удаление прошло успешно
         }
+        return false; // Если не нашли элемент для удаления
     }
 }
