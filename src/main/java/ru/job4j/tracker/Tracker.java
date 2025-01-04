@@ -55,12 +55,12 @@ public class Tracker {
         return false;
     }
 
-    public boolean delete(int id) { // Изменяем метод на boolean
+    public boolean delete(int id) {
         int index = indexOf(id);
         if (index >= 0) {
             items.remove(index);
-            return true; // Возвращаем true, если удаление прошло успешно
+            return true;
         }
-        return false; // Если не нашли элемент для удаления
+        return false;
     }
 }
