@@ -1,4 +1,5 @@
 package ru.job4j.queue;
+
 import java.util.Queue;
 
 public class AppleStore {
@@ -13,18 +14,18 @@ public class AppleStore {
     public String getFirstUpsetCustomer() {
         int servedCustomers = 0;
         for (Customer customer : queue) {
-            return servedCustomers > count ? customer.name() : "";
+            if (++servedCustomers > count) {
+                return customer.name();
+            }
         }
-        return null;
+        return "";
     }
 
     public String getLastHappyCustomer() {
         int availableCount = count;
         String lastHappyCustomer = "";
-
         for (int i = 0; i < queue.size(); i++) {
             Customer customer = queue.poll();
-
             if (customer.amount() > availableCount) {
                 availableCount -= customer.amount();
                 lastHappyCustomer = customer.name();
@@ -34,5 +35,4 @@ public class AppleStore {
         }
         return lastHappyCustomer;
     }
-
 }
