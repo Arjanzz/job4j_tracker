@@ -33,6 +33,6 @@ public class AppleStore {
                 queue.offer(customer);
             }
         }
-        return lastHappyCustomer;
+         return lastHappyCustomer;
     }
 }
