@@ -13,15 +13,9 @@ public class AppleStore {
     public String getFirstUpsetCustomer() {
         int servedCustomers = 0;
         for (Customer customer : queue) {
-            if (servedCustomers < count) {
-                servedCustomers++;
-            } else {
-
-                return customer.name();
-            }
+            return servedCustomers > count ? customer.name() : "";
         }
-
-        return "";
+        return null;
     }
 
     public String getLastHappyCustomer() {
@@ -38,7 +32,6 @@ public class AppleStore {
                 queue.offer(customer);
             }
         }
-
         return lastHappyCustomer;
     }
 
