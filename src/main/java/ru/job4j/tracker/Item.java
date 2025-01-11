@@ -54,20 +54,15 @@ public class Item {
                 + '}';
     }
 
-    @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id == item.id && Objects.equals(name, item.name) && Objects.equals(created, item.created);
+        return name.equals(item.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, created);
+        return name.hashCode();
     }
 }
