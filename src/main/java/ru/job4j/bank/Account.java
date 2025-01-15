@@ -2,7 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Модель банковского счёта, управление и взаимодействие с информацией счёта
+ * @author Vladimir
+ * @version 1.0
+ */
+
 public class Account {
+    /**
+     * requisite - это реквизиты счета, используется для уникальной идентификации счета.
+     * balance - это текущий баланс счета
+     */
     private String requisite;
     private double balance;
 
